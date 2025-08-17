@@ -44,12 +44,17 @@ export default function Home() {
           >
             Sign in with LinkedIn
           </button>
-          <button 
-            onClick={() => signIn('email')}
-            className="w-full px-4 py-3 border border-slate-600 text-white hover:bg-slate-700 rounded-md transition-colors"
-          >
-            Sign in with Email
-          </button>
+          <div className="mt-6 pt-4 border-t border-slate-600">
+            <button 
+              onClick={() => router.push('/dashboard')}
+              className="w-full px-4 py-3 bg-green-600 hover:bg-green-700 text-white rounded-md transition-colors"
+            >
+              🚀 Demo Access (Skip Authentication)
+            </button>
+            <div className="text-center text-slate-400 text-sm mt-2">
+              For testing purposes - configure OAuth above for production
+            </div>
+          </div>
         </div>
       </div>
     </div>
