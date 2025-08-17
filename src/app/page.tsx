@@ -28,22 +28,13 @@ export default function Home() {
         <div className="text-center mb-6">
           <h1 className="text-2xl font-bold text-white mb-2">Welcome to SAM AI</h1>
           <p className="text-slate-300">
-            Agentic Sales AI Platform for LinkedIn automation and lead generation
+            AI-powered sales agent with natural conversation interface
           </p>
         </div>
         <div className="space-y-4">
-          <button 
-            onClick={() => signIn('google')}
-            className="w-full px-4 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md transition-colors"
-          >
-            Sign in with Google
-          </button>
-          <button 
-            onClick={() => signIn('linkedin')}
-            className="w-full px-4 py-3 bg-blue-700 hover:bg-blue-800 text-white rounded-md transition-colors"
-          >
-            Sign in with LinkedIn
-          </button>
+          <div className="text-center text-slate-400 text-sm mb-4">
+            OAuth providers managed through Unipile integration
+          </div>
           <div className="mt-6 pt-4 border-t border-slate-600">
             <button 
               onClick={() => router.push('/dashboard')}

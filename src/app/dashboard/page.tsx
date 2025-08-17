@@ -38,31 +38,37 @@ export default function Dashboard() {
         </div>
         
         <div className="bg-slate-800 p-6 rounded-lg">
-          <h2 className="text-xl mb-4">Welcome, {session?.user?.name || session?.user?.email || 'Demo User'}!</h2>
+          <h2 className="text-xl mb-4">Hello! I'm SAM, your AI sales agent.</h2>
           <p className="text-slate-300 mb-4">
-            🎉 Authentication is working perfectly! Your Next.js SAM AI is ready.
+            Let's have a conversation about your sales goals and I'll help you achieve them.
           </p>
           
           <div className="space-y-4">
-            <div className="p-4 bg-green-900/20 border border-green-700 rounded">
-              <h3 className="text-green-400 font-semibold">✅ Working Features:</h3>
+            <div className="p-4 bg-purple-900/20 border border-purple-700 rounded">
+              <h3 className="text-purple-400 font-semibold">🤖 SAM AI Capabilities:</h3>
               <ul className="list-disc list-inside text-sm space-y-1 mt-2">
-                <li>NextAuth authentication (Google, LinkedIn, Email)</li>
-                <li>Session management</li>
-                <li>Same Supabase backend</li>
-                <li>All your existing components ready to import</li>
-                <li>MCP, N8N, Unipile, Apify integrations preserved</li>
+                <li>Natural conversation interface for sales tasks</li>
+                <li>Connected to your email, LinkedIn via Unipile</li>
+                <li>Automated workflows via N8N integration</li>
+                <li>Multi-tenant workspace management</li>
+                <li>AI-powered sales intelligence</li>
               </ul>
             </div>
             
             <div className="p-4 bg-blue-900/20 border border-blue-700 rounded">
-              <h3 className="text-blue-400 font-semibold">🚀 Next Steps:</h3>
+              <h3 className="text-blue-400 font-semibold">💬 Ready to Start:</h3>
               <ul className="list-disc list-inside text-sm space-y-1 mt-2">
-                <li>Import your existing components</li>
-                <li>Add routing for all your pages</li>
-                <li>Deploy to Netlify</li>
-                <li>Configure OAuth providers</li>
+                <li>Click below to start chatting with SAM</li>
+                <li>Ask about prospects, campaigns, or strategy</li>
+                <li>Get help with sales automation</li>
+                <li>Manage your sales pipeline</li>
               </ul>
+              <button 
+                onClick={() => router.push('/workspace')}
+                className="mt-3 px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded text-sm"
+              >
+                Start Conversation with SAM →
+              </button>
             </div>
           </div>
         </div>
