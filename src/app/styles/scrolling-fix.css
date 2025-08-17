@@ -1,0 +1,33 @@
+/* Scrolling fixes for better mobile experience */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Fix for iOS momentum scrolling */
+* {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Prevent zoom on input focus on iOS */
+input, textarea, select {
+  font-size: 16px;
+}
+
+/* Fix for horizontal scroll on mobile */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Smooth scrolling for containers */
+.smooth-scroll {
+  scroll-behavior: smooth;
+}

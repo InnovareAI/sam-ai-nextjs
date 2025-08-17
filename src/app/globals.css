@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600&display=swap');
+
+/* Import scrolling fixes */
+@import './styles/scrolling-fix.css';
+
+/* Import white flat design system */
+@import './styles/white-flat-design.css';
+
+/* Import new design system */
+@import './styles/design-system.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Notification animations */
+@keyframes notification-bounce {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes notification-shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-2px);
+  }
+  75% {
+    transform: translateX(2px);
+  }
+}
+
+.animate-notification {
+  animation: notification-bounce 0.5s ease-in-out;
+}
+
+.animate-shake {
+  animation: notification-shake 0.3s ease-in-out;
+}
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Light theme - always white */
+    --background: 0 0% 100%; /* #FFFFFF */
+    --foreground: 222.2 84% 4.9%; /* #0B0D17 */
+    --card: 0 0% 100%; /* #FFFFFF */
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221 83% 53%; /* #3B82F6 */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221 83% 53%;
+    --radius: 0.5rem;
+
+    /* Dark theme for conversational interface */
+    --conv-background: 224 71% 4%;
+    --conv-foreground: 213 31% 91%;
+    --conv-card: 224 71% 4%;
+    --conv-card-foreground: 213 31% 91%;
+    --conv-popover: 224 71% 4%;
+    --conv-popover-foreground: 213 31% 91%;
+    --conv-primary: 262 83% 58%;
+    --conv-primary-foreground: 210 20% 98%;
+    --conv-secondary: 215 28% 17%;
+    --conv-secondary-foreground: 210 20% 98%;
+    --conv-muted: 215 28% 17%;
+    --conv-muted-foreground: 217 10% 65%;
+    --conv-accent: 338 100% 55%;
+    --conv-accent-foreground: 210 20% 98%;
+    --conv-destructive: 0 84% 60%;
+    --conv-destructive-foreground: 210 20% 98%;
+    --conv-border: 215 28% 17%;
+    --conv-input: 215 28% 17%;
+    --conv-ring: 262 83% 58%;
+
+    /* Premium color palette */
+    --premium-blue: 220 91% 58%;
+    --premium-purple: 262 83% 58%;
+    --premium-cyan: 199 89% 48%;
+    --premium-pink: 330 81% 60%;
+    --premium-orange: 25 95% 53%;
+    --premium-green: 142 76% 36%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--premium-purple)), hsl(var(--premium-blue)));
+    --gradient-success: linear-gradient(135deg, hsl(var(--premium-cyan)), hsl(var(--premium-green)));
+    --gradient-warning: linear-gradient(135deg, hsl(var(--premium-orange)), hsl(var(--premium-pink)));
+    --gradient-card: linear-gradient(135deg, hsl(215 28% 17% / 0.8), hsl(215 28% 20% / 0.4));
+    --gradient-hero: linear-gradient(180deg, hsl(224 71% 4%), hsl(215 28% 17%));
+    
+    /* Glass effects */
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-bg-light: rgba(255, 255, 255, 0.8);
+    --glass-border-light: rgba(0, 0, 0, 0.1);
+    
+    /* Shadows */
+    --shadow-premium: 0 25px 50px -12px hsl(var(--premium-purple) / 0.25);
+    --shadow-glow: 0 0 40px hsl(var(--premium-blue) / 0.3);
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222.2 84% 4.9%;
+    --sidebar-primary: 262 83% 58%;
+    --sidebar-primary-foreground: 210 20% 98%;
+    --sidebar-accent: 210 40% 96.1%;
+    --sidebar-accent-foreground: 222.2 47.4% 11.2%;
+    --sidebar-border: 214.3 31.8% 91.4%;
+    --sidebar-ring: 262 83% 58%;
+  }
+
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+}
+
+@layer components {
+  .glass-card {
+    background: var(--glass-bg-light);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border-light);
+  }
+  
+  .glass-card-dark {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+  }
+  
+  .gradient-text {
+    background: var(--gradient-primary);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .premium-shadow {
+    box-shadow: var(--shadow-premium);
+  }
+  
+  .glow-effect {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .metric-card {
+    background: var(--glass-bg-light);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--border));
+    transition: all 0.3s ease;
+  }
+  
+  .metric-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-premium);
+  }
+
+  /* Conversational interface theme */
+  .conversational-theme {
+    --background: var(--conv-background);
+    --foreground: var(--conv-foreground);
+    --card: var(--conv-card);
+    --card-foreground: var(--conv-card-foreground);
+    --popover: var(--conv-popover);
+    --popover-foreground: var(--conv-popover-foreground);
+    --primary: var(--conv-primary);
+    --primary-foreground: var(--conv-primary-foreground);
+    --secondary: var(--conv-secondary);
+    --secondary-foreground: var(--conv-secondary-foreground);
+    --muted: var(--conv-muted);
+    --muted-foreground: var(--conv-muted-foreground);
+    --accent: var(--conv-accent);
+    --accent-foreground: var(--conv-accent-foreground);
+    --destructive: var(--conv-destructive);
+    --destructive-foreground: var(--conv-destructive-foreground);
+    --border: var(--conv-border);
+    --input: var(--conv-input);
+    --ring: var(--conv-ring);
+  }
+}
